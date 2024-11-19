@@ -33,7 +33,11 @@ export default function App() {
   return (
     <MantineProvider>
       <ModalsProvider>
-        <RouterProvider router={router} context={context} />
+        <RouterProvider
+          router={router}
+          context={context}
+          basepath="/2024-MUL-3sem-frontend"
+        />
       </ModalsProvider>
     </MantineProvider>
   );
