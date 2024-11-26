@@ -5,11 +5,18 @@ export const Route = createFileRoute("/_layout")({
   component: RouteComponent,
 });
 
+const LayoutContainer = {
+  display: "flex",
+  flexDirection: "row",
+};
+
 function RouteComponent() {
   return (
-    <div>
+    <div style={LayoutContainer}>
       <NavBar />
-      <Outlet />
+      <div style={{ width: "100%", height: "100%" }}>
+        <Outlet />
+      </div>
     </div>
   );
 }
