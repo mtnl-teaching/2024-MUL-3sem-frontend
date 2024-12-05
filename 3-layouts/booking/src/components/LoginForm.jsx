@@ -2,9 +2,10 @@ import { TextInput, PasswordInput, Button } from "@mantine/core";
 import { Container } from "@mantine/core";
 import styles from "./login-form.module.css";
 import { useState } from "react";
-import { useRouteContext } from "@tanstack/react-router";
+import { useNavigate, useRouteContext } from "@tanstack/react-router";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const context = useRouteContext({ from: "/_login/login" });
   const [name, setName] = useState("");
 
@@ -38,6 +39,7 @@ export default function LoginForm() {
     };
 
     context.setUserInfo(userInfo);
+    navigate({ to: "/" });
 
     // 2. Siden ændrer sig
     // Redirecter til /index

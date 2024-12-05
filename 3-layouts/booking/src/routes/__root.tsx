@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import NavBar from "../components/NavBar";
+import { log } from "console";
 
 export interface RouterContext extends Record<any, any> {
   supabase: any;
@@ -18,13 +19,14 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
 function RootRouteWithLayout() {
   const context = useRouteContext({ from: "" });
-  const token = context.userInfo?.userInfo.token;
 
-  useEffect(() => {}, [context]);
+  useEffect(() => {
+    console.log(context);
+  }, [context]);
 
   return (
     <>
-      {token && <NavBar />}
+      {context.userInfo?.token && <NavBar />}
       <Outlet />
       <TanStackRouterDevtools />
     </>
